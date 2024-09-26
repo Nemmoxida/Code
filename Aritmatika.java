@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class penjumlahan {
+public class Aritmatika {
     public static void main(String[] args) {
 
         // membuat scanner
