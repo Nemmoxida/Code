@@ -10,9 +10,9 @@ public class Aritmatika {
         System.out.println("Aritmatika Dasar");
         System.out.println("Berapa angka yang ingin di hitung");
 
-        int x = 0;  // x adalah jumlah angka yang ingin dihitung
+        int x = 0; // x adalah jumlah angka yang ingin dihitung
         int hasil = 0; // hasil adalah hasil dari operasi aritmatika
-        
+
         // memasukan value untuk x
         // menggunakan try-catch untuk menangkap error jika input bukan angka
         while (true) {
@@ -36,13 +36,15 @@ public class Aritmatika {
         String op = ""; // op adalah operasi aritmatika yang diinginkan
 
         boolean programDone = true; // programDone adalah status program
-        boolean angkaHitung = true; // angkaHitung digunakan untuk menentukan apakah program akan menyuruh user menginput value x
+        boolean angkaHitung = true; // angkaHitung digunakan untuk menentukan apakah program akan menyuruh user
+                                    // menginput value x
 
         while (programDone) {
 
-            // jika angkaHitung false, maka program akan meminta user untuk menginput value x
+            // jika angkaHitung false, maka program akan meminta user untuk menginput value
+            // x
             if (angkaHitung == false) {
-                
+
                 hasil = 0; // reset hasil
                 System.out.println("\nBerapa angka yang ingin di hitung");
                 x = input.nextInt();
@@ -53,7 +55,7 @@ public class Aritmatika {
 
             op = input.nextLine(); // memasukan value untuk op
 
-                // jika op adalah penjumlahan, maka program akan menjalankan operasi penjumlahan
+            // jika op adalah penjumlahan, maka program akan menjalankan operasi penjumlahan
             if (op.equalsIgnoreCase("A") || op.equalsIgnoreCase("penjumlahan")) {
 
                 while (true) {
@@ -71,10 +73,12 @@ public class Aritmatika {
                         String last = input.nextLine();
 
                         if (last.equalsIgnoreCase("Y")) {
-                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan di set false
+                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan
+                                                 // di set false
                             break;
                         } else {
-                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone akan di set false
+                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone
+                                                 // akan di set false
                             break;
                         }
                     } catch (InputMismatchException e) {
@@ -102,10 +106,12 @@ public class Aritmatika {
                         String last = input.nextLine();
 
                         if (last.equalsIgnoreCase("Y")) {
-                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan di set false
+                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan
+                                                 // di set false
                             break;
                         } else {
-                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone akan di set false
+                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone
+                                                 // akan di set false
                             break;
                         }
                     } catch (InputMismatchException e) {
@@ -116,7 +122,7 @@ public class Aritmatika {
 
                 // jika op adalah perkalian, maka program akan menjalankan operasi perkalian
             } else if (op.equalsIgnoreCase("C") || op.equalsIgnoreCase("perkalian")) {
-                
+
                 while (true) {
                     try {
                         System.out.println("\nMasukkan angka ke-1:");
@@ -133,10 +139,12 @@ public class Aritmatika {
                         String last = input.nextLine();
 
                         if (last.equalsIgnoreCase("Y")) {
-                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan di set false
+                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan
+                                                 // di set false
                             break;
                         } else {
-                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone akan di set false
+                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone
+                                                 // akan di set false
                             break;
                         }
                     } catch (InputMismatchException e) {
@@ -163,10 +171,12 @@ public class Aritmatika {
                         String last = input.nextLine();
 
                         if (last.equalsIgnoreCase("Y")) {
-                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan di set false
+                            angkaHitung = false; // jika user ingin menggunakan program ini lagi, maka angkaHitung akan
+                                                 // di set false
                             break;
                         } else {
-                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone akan di set false
+                            programDone = false; // jika user tidak ingin menggunakan program ini lagi, maka programDone
+                                                 // akan di set false
                             break;
                         }
                     } catch (InputMismatchException e) {
@@ -178,7 +188,7 @@ public class Aritmatika {
             } else {
                 System.out.println("Operasi tidak ditemukan. Coba lagi.");
             }
-            
+
         }
 
         input.close(); // menutup input
