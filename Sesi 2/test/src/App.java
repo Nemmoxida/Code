@@ -1,8 +1,16 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
+
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator(',');
+        symbols.setGroupingSeparator('.');
+
+        DecimalFormat df = new DecimalFormat("#,###.##", symbols);
 
         float x = 28000;
         System.out.println("\nHarga 1kg telur adalah Rp. 24.000");
@@ -17,7 +25,12 @@ public class App {
 
         float kembalian = uang - telur;
 
-        System.out.println("\nKembalian anda adalah Rp. " + kembalian);
+        if (kembalian < 0) {
+            System.out.println("\nUang anda kurang Rp. " + df.format(kembalian));
+            
+        } else{
+            System.out.println("\nKembalian anda adalah Rp. " + df.format(kembalian));
+        }
 
         input.close();
     }
