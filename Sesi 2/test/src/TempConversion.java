@@ -126,7 +126,6 @@ public class TempConversion {
             namaSuhuKonversi = "Fahrenheit";
         } else {
             namaSuhuKonversi = "Kelvin";
-
         }
 
         System.out.println("\nHasil konversi suhu dari " + df.format(suhuValue) + " " + namaSuhu + " ke " + namaSuhuKonversi
