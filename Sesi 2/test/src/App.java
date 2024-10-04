@@ -12,18 +12,36 @@ public class App {
 
         DecimalFormat df = new DecimalFormat("#,###.##", symbols);
 
-        float x = 28000;
-        System.out.println("\nHarga 1kg telur adalah Rp. 24.000");
+        float x = 20000;
+        System.out.println("\nHarga 1kg telur adalah Rp. 20.000");
 
         System.out.println("\nMasukan jumlah telur yang akan dibeli : ");
         float y = input.nextFloat();
         float telur = x * y;
 
-        System.out.println("\nTotal harga telur adalah Rp. " + telur);
+        System.out.println("\nTotal harga telur adalah Rp. " + df.format(telur));
         System.out.println("\nMasukan uang anda : ");
         float uang = input.nextInt();
 
-        float kembalian = uang - telur;
+        double diskon = 0;
+
+        if (telur >= 100000) {
+            // diskon = 10000;
+            // System.out.println("\nAnda mendapatkan diskon " + df.format(diskon));
+
+            System.out.println("\nSelamat anda mendapatkan sprei gratis");
+        } else {
+            diskon = 0;
+        }
+
+        double kembalian = 0;
+        if (diskon > 0){
+            kembalian = uang - (telur - diskon);
+        } else if (diskon == 0){
+            kembalian = uang - telur;
+        }
+
+
 
         if (kembalian < 0) {
             System.out.println("\nUang anda kurang Rp. " + df.format(kembalian));

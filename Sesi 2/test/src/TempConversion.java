@@ -66,9 +66,12 @@ public class TempConversion {
         while (true) {
             try {
                 choice = input.nextInt(); // memasukan value untuk choice (untuk konversi)
-                if (choice > 0 && choice < 4) { // jika pilihan di luar 1, 2, 3 maka akan diulang
+                if (suhu == choice) { // jika pilihan sama dengan suhu yang akan di konversi
+                    System.err.println("\nSuhu yang sama tidak perlu di konversi");
+                } else if (choice > 0 && choice < 4) { // jika pilihan di luar 1, 2, 3 maka akan diulang
                     break;
-                } else {
+                }
+                else {
                     System.out.println("\nInput tidak valid. Coba lagi.");
                 }
             } catch (InputMismatchException e) {

@@ -83,6 +83,7 @@ public class Aritmatika {
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("\nInput bukan angka. Coba lagi.");
+                        hasil = 0;
                         input.next();
                     }
                 }
@@ -116,6 +117,7 @@ public class Aritmatika {
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("\nInput bukan angka. Coba lagi.");
+                        hasil = 0;
                         input.next();
                     }
                 }
@@ -149,6 +151,7 @@ public class Aritmatika {
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("\nInput bukan angka. Coba lagi.");
+                        hasil = 0;
                         input.next();
                     }
                 }
@@ -181,6 +184,7 @@ public class Aritmatika {
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("\nInput bukan angka. Coba lagi.");
+                        hasil = 0;
                         input.next();
                     }
                 }
@@ -193,5 +197,8 @@ public class Aritmatika {
 
         input.close(); // menutup input
 
+
+
+        
     }
 }
