@@ -14,11 +14,16 @@ public class FullAdder{
         int carryOut = 0;   // carry out
         boolean and1 = true;    // first and gate for carry out
         boolean and2 = true;    // second and gate for carry out
+        boolean carryOutFinal = false;
 
         System.out.println("How many operation do yo need?");
         x = input.nextInt();
 
-        for(int i = 0; i < x ; i++)
+        for(int i = 1; i <= x ; i++){
+            if (i == x) {
+                carryOutFinal = true;
+            }
+        }
 
         if (a == true && b == true || a == false && b == false) { // first xor gate
             sum1 = false;
