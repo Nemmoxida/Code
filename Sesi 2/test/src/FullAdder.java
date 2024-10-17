@@ -1,77 +1,104 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FullAdder {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
-        int aInt = 0; // input a
-        int bInt = 0; // input b
-        int Op = 0; // how much time you want to do the calculation
-        boolean a = (aInt == 1); // input a
-        boolean b = (aInt == 1); // input b
-        boolean c = false; // input carry in
-        boolean sum1 = false; // first xor gate
-        int sumFinal = 0; // final sum
-        int carryOut = 0; // carry out
-        boolean and1 = false; // first and gate for carry out
-        boolean and2 = false; // second and gate for carry out
-        boolean carryOutFinal = false;  // carry out final for the last digit of binary
-        String opLegth = Integer.toString(Op); // convert Op to string so it can be used for array
-        int[] sumArray = new int[opLegth.length()]; // final summary of the binary number, the legth is determine by opLegth
+        boolean firstXor = false;
+        boolean secondXor = false;
+        boolean firstAnd = false;
+        boolean secondAnd = false;
+        boolean or = false;
+        boolean carryIn = false;
+        int sum = 0;
 
-        System.out.println("How many operation do yo need?");
-        Op = input.nextInt();
+        System.out.println("Enter the first Input");
+        String inputOne = input.nextLine();
 
-        System.out.println(Op);
-        System.out.println(opLegth);
+        System.out.println("Enter the second Input");
+        String inputTwo = input.nextLine();
 
-        for (int i = 0; i < Op; i++) {
-            System.out.println("first input :");
-            aInt = input.nextInt();
+        ArrayList<Integer> arrayOne = new ArrayList<Integer>();
+        ArrayList<Integer> arrayTwo = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
 
-            System.out.println("second input");
-            bInt = input.nextInt();
-
-
-            if (a == true && b == true || a == false && b == false) { // first xor gate
-                sum1 = false;
-            } else {
-                sum1 = true;
-            }
-
-            if (sum1 == true && c == true || sum1 == false && c == false) { // second xor gate for sumFinal
-                sumFinal = 0;
-
-            } else {
-                sumFinal = 1;
-            }
-
-            if (sum1 == true && c == true) { // first and gate for carry out
-                and1 = true;
-            } else {
-                and1 = false;
-            }
-
-            if (a == true && b == true) { // second and gate for carry out
-                and2 = true;
-            } else {
-                and2 = false;
-            }
-
-            if (and1 == true || and2 == true) { // carry out
-                carryOut = 1;
-            } else {
-                carryOut = 0;
-            }
-
-            if (i == Op && carryOut == 1) {
-                carryOutFinal = true;
-            }
-
-            sumArray[opLegth.length() - 1 - i] = sumFinal; // convert the sumFinal to array
+        for (char binary : inputOne.toCharArray()) {
+            int binaryInt = Character.getNumericValue(binary);
+            arrayOne.add(binaryInt);
         }
 
-        System.out.println(sumArray);
 
+        for (char binary : inputTwo.toCharArray()) {
+            int binaryInt = Character.getNumericValue(binary);
+            arrayTwo.add(binaryInt);
+        }
+
+        int maxLength = Math.max(arrayOne.size(), arrayTwo.size());
+
+        int[] arrayOneArr = arrayOne.stream().mapToInt(i -> i).toArray();
+        int[] arrayTwoArr = arrayTwo.stream().mapToInt(i -> i).toArray();
+
+        int[] paddedArrayOne = padArray(arrayOneArr, maxLength);
+        int[] paddedArrayTwo = padArray(arrayTwoArr, maxLength);
+
+        // Reverse the padded arrays
+        paddedArrayOne = reverseArray(paddedArrayOne);
+        paddedArrayTwo = reverseArray(paddedArrayTwo);
+        System.out.println(Arrays.toString(paddedArrayOne));
+        System.out.println(Arrays.toString(paddedArrayTwo));
+
+
+        for (int i = 0; i < maxLength; i++) {
+
+            boolean a = paddedArrayOne[i] == 1;
+            boolean b = paddedArrayTwo[i] == 1;
+
+            // First XOR gate
+            firstXor = a ^ b;
+
+            // Second XOR gate for sumFinal
+            secondXor = firstXor ^ carryIn;
+
+            // First AND gate for carry out
+            firstAnd = firstXor && carryIn;
+
+            // Second AND gate for carry out
+            secondAnd = a && b;
+
+            // OR gate for carry out
+            or = (firstAnd || secondAnd);
+
+            sum = secondXor ? 1 : 0;
+
+            result.add(sum);
+
+            if (i == maxLength - 1 && or == true) {
+                result.add(1);
+            } else {
+                carryIn = or;
+                
+            }
+        }
+
+        int[] resultArr = result.stream().mapToInt(i -> i).toArray();
+        resultArr = reverseArray(resultArr);
+        System.out.println(Arrays.toString(resultArr));
         input.close();
+    }
+
+    private static int[] padArray(int[] array, int length) {
+        int[] paddedArray = new int[length];
+        System.arraycopy(array, 0, paddedArray, length - array.length, array.length);
+        return paddedArray;
+    }
+
+    private static int[] reverseArray(int[] array) {
+        int[] reversedArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversedArray[i] = array[array.length - 1 - i];
+        }
+        return reversedArray;
     }
 }
