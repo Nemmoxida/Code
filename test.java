@@ -1,30 +1,31 @@
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class test {
     public static void main(String[] args) {
-        // Scanner input = new Scanner(System.in);
+        int[] array1 = {1, 0, 1, 1}; // Array pertama
+        int[] array2 = {1, 1, 1};    // Array kedua, lebih pendek
 
-        // System.out.println("Enter a binary string (e.g., 10110): ");
-        // String binaryString = input.nextLine();
+        // Cari panjang terbesar antara kedua array
+        int maxLength = Math.max(array1.length, array2.length);
 
-        // // Convert the binary string to an array of integers from right to left
-        // int[] binaryArray = new int[binaryString.length()];
-        // for (int i = 0; i < binaryString.length(); i++) {
-        //     binaryArray[binaryString.length() - 1 - i] = Character.getNumericValue(binaryString.charAt(i));
-        // }
+        // Tambahkan padding 0 ke depan array yang lebih pendek
+        int[] paddedArray1 = padArray(array1, maxLength);
+        int[] paddedArray2 = padArray(array2, maxLength);
 
-        // // Print the array to verify the conversion
-        // System.out.print("Binary array (right to left): ");
-        // for (int i : binaryArray) {
-        //     System.out.print(i + " ");
-        // }
-        // System.out.println();
+        // Lakukan operasi AND
+        int[] result = new int[maxLength];
+        for (int i = 0; i < maxLength; i++) {
+            result[i] = paddedArray1[i] & paddedArray2[i];
+        }
 
-        // input.close();
+        System.out.println("Hasil AND: " + Arrays.toString(result));
+        System.out.println(Arrays.toString(paddedArray2));
+    }
 
-        int a = 10;
-        String b = Integer.toString(a);
-
-        System.out.println(b);
+    // Fungsi untuk menambahkan padding 0 di depan array
+    private static int[] padArray(int[] array, int length) {
+        int[] paddedArray = new int[length];
+        System.arraycopy(array, 0, paddedArray, length - array.length, array.length);
+        return paddedArray;
     }
 }
