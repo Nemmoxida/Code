@@ -91,7 +91,7 @@ public class sesi4 {
             System.out.println("");
             for ( int j = 0; j < 5; j++){
                 a += 1;
-                System.out.print( + a + " ");
+                System.out.print(a + " ");
             }
 
             System.out.println("");
