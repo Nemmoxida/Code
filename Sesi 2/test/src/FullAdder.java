@@ -46,8 +46,7 @@ public class FullAdder {
         // Reverse the padded arrays
         paddedArrayOne = reverseArray(paddedArrayOne);
         paddedArrayTwo = reverseArray(paddedArrayTwo);
-        System.out.println(Arrays.toString(paddedArrayOne));
-        System.out.println(Arrays.toString(paddedArrayTwo));
+
 
 
         for (int i = 0; i < maxLength; i++) {
@@ -82,9 +81,28 @@ public class FullAdder {
             }
         }
 
+        while (true) {
+            if (result.size() % 4 == 0) {
+                break;
+            } else {
+                result.add(0);
+                
+            }
+        }
+
         int[] resultArr = result.stream().mapToInt(i -> i).toArray();
+
+
+
         resultArr = reverseArray(resultArr);
-        System.out.println(Arrays.toString(resultArr));
+
+        for (int i = 0; i < resultArr.length; i++) {
+            if (i > 0 && i % 4 == 0) {
+                System.out.print(" ");
+            }
+            System.out.print(resultArr[i]);
+        }
+
         input.close();
     }
 

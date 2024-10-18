@@ -32,7 +32,7 @@ public class sesi4 {
                     System.out.println("Nomor tidak valid, coba lagi.");
                     break;
             }
-            System.out.println("Pilih nomor 1-5 (atau 0 untuk keluar):");
+            System.out.println("\nPilih nomor 1-5 (atau 0 untuk keluar):");
             pilihan = input.nextInt();
         }
 
@@ -84,18 +84,21 @@ public class sesi4 {
         }
     }
     public static void method4() {
-        int rows = 4;
-        int cols = 5;
+        int a = 0;
+        int b = 20;
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if ((i + j) % 2 == 0) {
-                    System.out.print("-1 ");
-                } else {
-                    System.out.print("0 ");
-                }
+        for (int i = 0; i < 2; i++){
+            System.out.println("");
+            for ( int j = 0; j < 5; j++){
+                a += 1;
+                System.out.print( + a + " ");
             }
-            System.out.println();
+
+            System.out.println("");
+            for (int f = 0; f < 5; f++){
+                System.out.print(b + " ");
+                b -= 1;
+            }
         }
     }
 
