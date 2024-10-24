@@ -25,16 +25,20 @@ public class FullAdder {
         ArrayList<Integer> arrayTwo = new ArrayList<Integer>();
         ArrayList<Integer> result = new ArrayList<Integer>();
 
-        // Convert the binary input to array of integers
+        // Convert the binary input to array of integers, ignoring spaces
         for (char binary : inputOne.toCharArray()) {
-            int binaryInt = Character.getNumericValue(binary);
-            arrayOne.add(binaryInt);
+            if (binary != ' ') {
+                int binaryInt = Character.getNumericValue(binary);
+                arrayOne.add(binaryInt);
+            }
         }
 
-        // Convert the binary input to array of integers
+        // Convert the binary input to array of integers, ignoring spaces
         for (char binary : inputTwo.toCharArray()) {
-            int binaryInt = Character.getNumericValue(binary);
-            arrayTwo.add(binaryInt);
+            if (binary != ' ') {
+                int binaryInt = Character.getNumericValue(binary);
+                arrayTwo.add(binaryInt);
+            }
         }
 
         // Get the maximum length of the two arrays
