@@ -1,5 +1,3 @@
-Keterangan file
+Tugas Persesi ada di folder yang sesuai dengan namanya
 
-App.java = menghitung transaksi telur
-rng.java = program menebak angka 1 - 10
-TempConversion.java = program untuk konversi suhu
+file yang ada di luar hanyalah eksperimen yang tidak ada hubungannya dengan tugas
