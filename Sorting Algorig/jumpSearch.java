@@ -40,8 +40,7 @@ public class jumpSearch
     // Driver program to test function
     public static void main(String [ ] args)
     {
-        int arr[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21,
-                    34, 55, 89, 144, 233, 377, 610};
+        int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int x = 89;
  
         // Find the index of 'x' using Jump Search
