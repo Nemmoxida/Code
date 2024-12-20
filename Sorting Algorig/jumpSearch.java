@@ -1,6 +1,6 @@
 public class jumpSearch
 {
-    public static int jumpSearch(int[] arr, int x)
+    public static int Jumpsearch(int[] arr, int x)
     {
         int n = arr.length;
  
@@ -41,10 +41,10 @@ public class jumpSearch
     public static void main(String [ ] args)
     {
         int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int x = 89;
+        int x = 6;
  
         // Find the index of 'x' using Jump Search
-        int index = jumpSearch(arr, x);
+        int index = Jumpsearch(arr, x);
  
         // Print the index where 'x' is located
         System.out.println("\nNumber " + x +
