@@ -1,4 +1,9 @@
-def lakukan_voting(pemilih, calon):
+from .data import get_pemilih, get_calon, set_sudah_memilih, tambah_suara_calon
+import pandas as pd
+
+def lakukan_voting():
+    pemilih = pd.DataFrame(get_pemilih())
+    calon = pd.DataFrame(get_calon())
     print("Silakan melakukan voting.")
 
     while True:
@@ -10,12 +15,10 @@ def lakukan_voting(pemilih, calon):
 
             idCalon = input("Masukkan ID calon: ")
             if idCalon in calon["id"].values:
-                pemilih.loc[pemilih["id"] == idPemilih, "sudah_memilih"] = True
-
-                calon.loc[calon["id"] == idCalon, "Jumlah_Suara"] += 1
-
+                set_sudah_memilih(idPemilih)
+                tambah_suara_calon(idCalon)
                 print("Voting berhasil!")
-                return pemilih, calon  
+                return  
             else:
                 print("ID calon tidak ditemukan")
         else:

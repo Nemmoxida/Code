@@ -1,50 +1,64 @@
 import numpy as np
-import pandas as pd
-
-def tambah_pemilih():
-    # print("Fungsi ini akan diisi sesuai kebutuhan modul.")
-    n = 100
-    number = 0
-    id = "NP" + str(number)
-    dataPemilih = []
-
-    for i in range(n):
-        data = {
-        "id" : id,
-        "nama" : np.random.choice(["Ayu", "Dewi", "Ramdan", "Abi", "Altaf", "Farhan", "Kermit"]),
-        "jurusan" : np.random.choice(["TI", "SI", "DKV", "PM", "HK"]),
-        "sudah_memilih" : np.random.choice([True, False])
-        }
-        number += 1
-        id = "NP" + str(number)
-        dataPemilih.append(data)
-
-    return dataPemilih
-
 import math
 
-def tambah_calon(terpilih):
-    print("Fungsi ini akan diisi sesuai kebutuhan modul.")
 
+first_names = ["Ayu", "Dewi", "Ramdan", "Abi", "Altaf", "Farhan", "Kermit", "Lia", "Rizky", "Siti", "Budi", "Rina"]
+last_names = ["Putra", "Sari", "Wijaya", "Saputra", "Pratama", "Utami", "Hidayat", "Santoso", "Rahma", "Fauzi"]
+
+def _generate_pemilih():
+    n = 100
+    dataPemilih = []
+    for i in range(n):
+        nama = f"{np.random.choice(first_names)} {np.random.choice(last_names)}"
+        data = {
+            "id": f"NP{i}",
+            "nama": nama,
+            "jurusan": np.random.choice(["TI", "SI", "DKV", "PM", "HK"]),
+            "sudah_memilih": np.random.choice([True, False])
+        }
+        dataPemilih.append(data)
+    return dataPemilih
+
+def _generate_calon(terpilih):
     n = 3
-    number = 0
-    id = "NP" + str(number)
-    
     dataCalon = []
-    suara = math.floor(terpilih/n)
+    suara = math.floor(terpilih / n)
     sisa = terpilih % n
     for i in range(n):
-        if i == 2:
-            suara +=1
+        jumlah_suara = suara + (1 if i < sisa else 0)
+        nama = f"{np.random.choice(first_names)} {np.random.choice(last_names)}"
         data = {
-        "id" : id,
-        "nama" : np.random.choice(["Ayu", "Dewi", "Ramdan", "Abi", "Altaf", "Farhan", "Kermit"]),
-        "Visi" : np.random.choice(["Kejayaan", "Ketamakan", "Kebersamaan",]),
-        "Jumlah_Suara" : suara
+            "id": f"NP{i}",
+            "nama": nama,
+            "Visi": np.random.choice(["Kejayaan", "Ketamakan", "Kebersamaan"]),
+            "Jumlah_Suara": jumlah_suara
         }
-        number += 1
-        id = "NP" + str(number)
         dataCalon.append(data)
     return dataCalon
 
-    
+
+dataPemilih = _generate_pemilih()
+terpilih = sum(1 for p in dataPemilih if p["sudah_memilih"])
+dataCalon = _generate_calon(terpilih)  
+
+
+def get_pemilih():
+    return dataPemilih
+
+def get_calon():
+    return dataCalon
+
+# --- Add these update functions ---
+def set_sudah_memilih(id_pemilih):
+    for p in dataPemilih:
+        if p["id"] == id_pemilih:
+            p["sudah_memilih"] = True
+            break
+
+def tambah_suara_calon(id_calon):
+    for c in dataCalon:
+        if c["id"] == id_calon:
+            c["Jumlah_Suara"] += 1
+            break
+
+
