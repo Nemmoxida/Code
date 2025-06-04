@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import data 
+import dataGen
 
 def tambah_calon():
     print("List Calon :")

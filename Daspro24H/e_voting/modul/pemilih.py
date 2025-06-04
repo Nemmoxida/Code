@@ -1,9 +1,9 @@
 import numpy as np
-import pemilih
 import pandas as pd
+import dataGen
 
 def tambah_pemilih():
     print("List Pemilih :")
-    dataPemilih = pemilih.get_pemilih()
+    dataPemilih = data.get_pemilih()
     df = pd.DataFrame(dataPemilih)
     print(df.to_string(index=False))
