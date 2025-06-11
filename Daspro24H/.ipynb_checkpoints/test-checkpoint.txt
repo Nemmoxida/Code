@@ -1,0 +1,1 @@
+{'nim': '11111111111', 'nama': 'asasd', 'alamat': 'asdsad', 'kelas': 'TI24H'},{'nim': '12345678901', 'nama': 'yuuna', 'alamat': 'ampera', 'kelas': 'TI24G'}

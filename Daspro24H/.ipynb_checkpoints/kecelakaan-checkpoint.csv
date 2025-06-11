@@ -1,0 +1,14 @@
+﻿_id,No,Daftar Data,2016,2017,2018,2019,2020,Satuan
+1,1,Data Kecelakaan Lalu Lintas,,,,,,
+2,,1) Jumlah Kecelakaan,667,977,723,570,448,Kejadian
+3,,2)  Korban Meninggal Dunia,377,271,215,190,214,Jiwa
+4,,3) Korban Luka Ringan,397,736,666,432,323,Jiwa
+5,,4) Korban Luka Berat,362,362,281,232,195,Jiwa
+6,,5) Kerugian Materi,4037700000,5566830000,6633220000,2499350000,2788600000,Rp
+7,2,Data Pelanggaran Lalu Lintas,,,,,,
+8,,1) Jumlah Pelanggaran,108.17,261.89,94931,281788,138739,Kejadian
+9,,2) Denda,7128817500,13582895800,11557248000,9938382000,5171042500,Rp
+10,3,Kecelakaan Transportasi,,,,,,
+11,,1) Udara,0,0,0,0,0,Kali/Tahun
+12,,2) Laut,46,0,0,1,0,Kali/Tahun
+13,,3) Sungai,30,0,0,0,0,Kali/Tahun
